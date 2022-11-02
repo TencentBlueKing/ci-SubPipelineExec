@@ -1,0 +1,196 @@
+{
+  "atomCode": "SubPipelineExec",
+  "execution": {
+    "language": "java",
+    "minimumVersion": "1.8",
+    "demands": [],
+    "target": "java -jar SubPipelineExec-jar-with-dependencies.jar"
+  },
+  "input": {
+    "projectId": {
+      "label": "所属项目",
+      "type": "devops-select",
+      "required": true,
+      "default": "",
+      "desc": "子流水线所属项目，当以变量方式传入时，值为项目英文名",
+      "optionsConf": {
+        "searchable": true,
+        "multiple": false,
+        "url": "project/api/user/projects",
+        "paramId": "projectCode",
+        "paramName": "projectName"
+      }
+    },
+    "subPipelineType": {
+      "type": "enum-input",
+      "required": true,
+      "label": "子流水线",
+      "desc": "选择待执行的流水线",
+      "list": [
+        {
+          "value": "ID",
+          "label": "从列表选择"
+        },
+        {
+          "value": "NAME",
+          "label": "按ID或名称输入"
+        }
+      ],
+      "default": "ID"
+    },
+    "subPip": {
+      "type": "selector",
+      "required": true,
+      "optionsConf": {
+        "searchable": true,
+        "multiple": false,
+        "url": "/process/api/user/pipelines/{projectId}/hasPermissionList?permission=EXECUTE&excludePipelineId={pipelineId?}",
+        "paramId": "pipelineId",
+        "paramName": "pipelineName"
+      },
+      "rely": {
+        "operation": "AND",
+        "expression": [
+          {
+            "key": "subPipelineType",
+            "value": "ID"
+          }
+        ]
+      }
+    },
+    "subPipelineName": {
+      "type": "vuex-input",
+      "required": true,
+      "label": "",
+      "default": "",
+      "placeholder": "请输入子流水线ID或名称",
+      "rely": {
+        "operation": "AND",
+        "expression": [
+          {
+            "key": "subPipelineType",
+            "value": "NAME"
+          }
+        ]
+      }
+    },
+    "runMode": {
+      "label": "运行方式",
+      "type": "enum-input",
+      "required": true,
+      "list": [
+        {
+          "value": "syn",
+          "label": "同步"
+        },
+        {
+          "value": "asyn",
+          "label": "异步"
+        }
+      ]
+    },
+    "params": {
+      "label": "子流水线参数",
+      "type": "parameter",
+      "required": false,
+      "desc": "带入子流水线的运行参数",
+      "param": {
+        "showEnable": true,
+        "enableTips": "选中时，以编辑当前插件且保存父流水线时的值为准，每次执行均从父流水线传入。 <br>未选中时，始终以子流水线最新设置为准，不从父流水线传入。",
+        "hasAddButton": false,
+        "paramType": "url",
+        "url": "/process/api/user/subpipeline/manualStartupInfo",
+        "urlQuery": {
+          "projectId": "",
+          "subPip": ""
+        },
+        "parameters": [
+        ]
+      },
+      "rely": {
+        "operation": "AND",
+        "expression": [
+          {
+            "key": "subPipelineType",
+            "value": "ID"
+          }
+        ]
+      }
+    },
+    "paramsStr": {
+      "label": "子流水线参数",
+      "type": "vuex-textarea",
+      "required": false,
+      "desc": " key和value间用=连接，多个参数间以换行分隔",
+      "placeholder": "a=111\nb=222",
+      "rely": {
+        "operation": "AND",
+        "expression": [
+          {
+            "key": "subPipelineType",
+            "value": "NAME"
+          }
+        ]
+      }
+    },
+    "fieldNamespace": {
+      "label": "子流水线输出变量命名空间",
+      "type": "vuex-input",
+      "required": false,
+      "desc": " 自动添加在子流水线变量前，避免覆盖父流水线变量,不填默认是sub_pipeline ",
+      "placeholder": "不填默认是sub_pipeline",
+      "default": "sub_pipeline",
+      "rely": {
+        "operation": "AND",
+        "expression": [
+          {
+            "key": "runMode",
+            "value": "syn"
+          }
+        ]
+      }
+    },
+    "outputSubBuildVariable": {
+      "label": "子流水线输出变量",
+      "type": "vuex-textarea",
+      "required": false,
+      "desc": " 填写需要输出的子流水变量名称，多个输出,以英文逗号分隔",
+      "placeholder": "parameter1,parameter2,parameter3",
+      "rely": {
+        "operation": "AND",
+        "expression": [
+          {
+            "key": "runMode",
+            "value": "syn"
+          }
+        ]
+      }
+    },
+    "pollingInterval": {
+      "label": "轮询间隔(分钟)",
+      "type": "vuex-input",
+      "required": false,
+      "desc": "轮询子流水线状态的间隔，以分钟为单位，支持1~10之间的整数",
+      "placeholder": "不填则默认为10s，支持1~10之间的整数",
+      "rely": {
+        "operation": "AND",
+        "expression": [
+          {
+            "key": "runMode",
+            "value": "syn"
+          }
+        ]
+      }
+    }
+  },
+  "output": {
+    "sub_pipeline_buildId": {
+      "description": "子流水线构建ID",
+      "type": "string"
+    },
+    "sub_pipeline_url": {
+      "description": "子流水线链接",
+      "type": "string"
+    }
+  }
+}
