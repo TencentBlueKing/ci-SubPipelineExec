@@ -5,7 +5,7 @@ on:
       - 'v*'
 
 env:
-  FILENAME: uploadReport
+  FILENAME: ci-SubPipelineExec
 jobs:
   # This workflow contains a single job called "build"
   build:
