@@ -60,7 +60,7 @@ public class IdParamParser implements ParamParser {
                     // 如果是下拉框并且是多选的,前端传过来的是列表对象，转换成字符串
                     String valueType = startUpInfo.getValueType();
                     Boolean valueMultiple = startUpInfo.getValueMultiple();
-                    if (valueType.equals("select") && valueMultiple && paramValue instanceof List) {
+                    if ("select".equals(valueType) && valueMultiple && paramValue instanceof List) {
                         paramValue = String.join(",", (List) paramValue);
                     }
                     values.put(idParam.getKey(), paramValue);

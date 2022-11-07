@@ -55,7 +55,7 @@ public class SubPipelineExecService {
         logger.info("<a target='_blank' href='" + url + "'>查看子流水线执行详情</a>");
         logger.groupEnd("");
         atomResult.getData().put("sub_pipeline_buildId", new StringData(projectBuildId.getId()));
-        atomResult.getData().put("sub_pipeline_url", new StringData("http://devops.oa.com" + url));
+        atomResult.getData().put("sub_pipeline_url", new StringData(url));
 
         if (RunMode.SYN.getValue().equals(param.getRunMode())) {
             logger.groupStart("sub pipeline status");

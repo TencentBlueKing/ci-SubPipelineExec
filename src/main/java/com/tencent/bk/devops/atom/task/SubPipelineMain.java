@@ -65,7 +65,7 @@ public class SubPipelineMain implements TaskAtom<AtomParam> {
         if (StringUtils.isBlank(subPipelineType)) {
             buffer.append("subPipelineType 不能为空 | ");
         }
-        if (subPipelineType.equals("ID")) {
+        if ("ID".equals(subPipelineType)) {
             if (StringUtils.isBlank(param.getSubPip())) {
                 buffer.append("子流水线不能为空 | ");
             }
