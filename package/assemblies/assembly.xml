@@ -19,6 +19,20 @@
                 <include>*.json</include>
             </includes>
         </fileSet>
+        <fileSet>
+            <directory>.</directory>
+            <outputDirectory>file</outputDirectory>
+            <includes>
+                <include>README.md</include>
+            </includes>
+        </fileSet>
+        <fileSet>
+            <directory>images</directory>
+            <outputDirectory>file</outputDirectory>
+            <includes>
+                <include>subPipeline.png</include>
+            </includes>
+        </fileSet>
     </fileSets>
 
 </assembly>
