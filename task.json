@@ -5,30 +5,30 @@
     "language": "java",
     "minimumVersion": "1.8",
     "demands": [],
-    "target": "java -jar ci-SubPipelineExec-jar-with-dependencies.jar",
-    "releaseInfo": {
-      "projectId": "Demo",
-      "name": "子流水线调用",
-      "language": "java",
-      "logoUrl": "${{indexFile(\"subPipeline.png\")}}",
-      "category": "TASK",
-      "classifyCode": "deploy",
-      "jobType": "AGENT_LESS",
-      "os": [],
-      "labelCodes": [
+    "target": "java -jar ci-SubPipelineExec-jar-with-dependencies.jar"
+  },
+  "releaseInfo": {
+    "projectId": "Demo",
+    "name": "子流水线调用",
+    "language": "java",
+    "logoUrl": "${{indexFile(\"subPipeline.png\")}}",
+    "category": "TASK",
+    "classifyCode": "deploy",
+    "jobType": "AGENT_LESS",
+    "os": [],
+    "labelCodes": [
 
-      ],
-      "summary": "以同步/异步的方式启动运行指定的项目下的流水线",
-      "description": "${{indexFile(\"README.md\")}}",
-      "configInfo": {
-        "frontendType": "NORMAL"
-      },
-      "versionInfo": {
-        "publisher": "admin",
-        "releaseType": "NEW",
-        "version": "1.0.0",
-        "versionContent": "init"
-      }
+    ],
+    "summary": "以同步/异步的方式启动运行指定的项目下的流水线",
+    "description": "${{indexFile(\"README.md\")}}",
+    "configInfo": {
+      "frontendType": "NORMAL"
+    },
+    "versionInfo": {
+      "publisher": "admin",
+      "releaseType": "NEW",
+      "version": "1.0.0",
+      "versionContent": "init"
     }
   },
   "input": {
