@@ -1,5 +1,5 @@
 <assembly>
-    <includeBaseDirectory>false</includeBaseDirectory>
+    <includeBaseDirectory>true</includeBaseDirectory>
     <formats>
         <format>zip</format>
     </formats>
