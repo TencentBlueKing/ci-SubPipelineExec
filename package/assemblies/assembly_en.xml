@@ -16,7 +16,7 @@
             <directory>.</directory>
             <outputDirectory>file</outputDirectory>
             <includes>
-                <include>README.md</include>
+                <include>readme_en.md</include>
             </includes>
         </fileSet>
         <fileSet>
@@ -31,9 +31,11 @@
     <files>
         <file>
             <!--源文件地址，相对于项目地址-->
-            <source>task.json</source>
+            <source>task_en.json</source>
             <!--输出目录为projectName-assembly-version/-->
             <outputDirectory>.</outputDirectory>
+            <!--重命名为-->
+            <destName>task.json</destName>
         </file>
     </files>
 
