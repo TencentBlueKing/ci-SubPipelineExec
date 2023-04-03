@@ -52,7 +52,7 @@ public class SubPipelineExecService {
                 values);
         String url = String.format("/console/pipeline/%s/%s/detail/%s", subProjectId, subPipelineId,
                 projectBuildId.getId());
-        logger.info("<a target='_blank' href='" + url + "'>查看子流水线执行详情</a>");
+        logger.info("<a target='_blank' href='" + url + "'>View sub-pipeline execution details</a>");
         logger.groupEnd("");
         atomResult.getData().put("sub_pipeline_buildId", new StringData(projectBuildId.getId()));
         atomResult.getData().put("sub_pipeline_url", new StringData(url));
@@ -62,11 +62,11 @@ public class SubPipelineExecService {
             final Status status = subPipelineApiService
                     .getSubPipelineStatus(subProjectId, subPipelineId, projectBuildId.getId(),
                             param.getPollingInterval());
-            logger.info("<a target='_blank' href='" + url + "'>查看子流水线执行详情</a>");
+            logger.info("<a target='_blank' href='" + url + "'>View sub-pipeline execution details</a>");
             logger.groupEnd("");
             outputSubPipelineVar();
             if (status != null && !BuildStatus.isSuccess(status.getStatus())) {
-                throw new TaskExecuteException(ErrorType.USER, ErrorCode.CONFIG_ERROR, "子流水线运行失败");
+                throw new TaskExecuteException(ErrorType.USER, ErrorCode.CONFIG_ERROR, "Failed to run sub-pipeline");
             }
         }
     }
@@ -92,7 +92,7 @@ public class SubPipelineExecService {
                     atomResult.getData().put(subPipelineFieldNamespace + key,
                             new StringData(buildVariableResult.get(key)));
                 } else {
-                    logger.warn("子流水线输出变量不存在：" + key);
+                    logger.warn("Subpipeline output variable does not exist：" + key);
                 }
             }
         }

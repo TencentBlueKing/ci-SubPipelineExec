@@ -134,13 +134,13 @@ public class SubPipelineApi extends BaseApi {
             if (result.isNotOk() || result.getData() == null) {
                 logger.warn("result:{}", result);
                 logger.info("<a target='_blank' href='/console/pipeline/" + subProjectId + "/" + subPipelineId
-                        + "/history'>查看子流水线</a>");
+                        + "/history'>View sub-pipeline</a>");
                 throw new ApiException("start pipeline error");
             }
             return result.getData();
         } catch (Throwable e) {
             logger.info("<a target='_blank' href='/console/pipeline/" + subProjectId + "/" + subPipelineId
-                    + "/history'>查看子流水线</a>");
+                    + "/history'>View sub-pipeline</a>");
             throw ExceptionTranslator.translator(e);
         }
     }

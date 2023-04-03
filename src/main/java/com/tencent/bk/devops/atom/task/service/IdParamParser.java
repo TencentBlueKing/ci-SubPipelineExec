@@ -42,7 +42,7 @@ public class IdParamParser implements ParamParser {
         List<IdParam> idParams = JsonUtil.fromJson(providedParam, new TypeReference<List<IdParam>>() {
         });
         if (idParams == null) {
-            throw new ParamInvalidException("子流水线动态参数解析失败: NULL");
+            throw new ParamInvalidException("id params cannot be empty");
         }
         List<SubPipelineStartUpInfo> startUpInfoList = subPipelineApiService.getSubPipelineStartUpInfo(userId,
                 subProjectId, subPipelineId);

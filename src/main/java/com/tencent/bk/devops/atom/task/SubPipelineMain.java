@@ -63,39 +63,39 @@ public class SubPipelineMain implements TaskAtom<AtomParam> {
         // 参数检查
         String subPipelineType = param.getSubPipelineType();
         if (StringUtils.isBlank(subPipelineType)) {
-            buffer.append("subPipelineType 不能为空 | ");
+            buffer.append("subPipelineType cannot be empty | ");
         }
         if ("ID".equals(subPipelineType)) {
             if (StringUtils.isBlank(param.getSubPip())) {
-                buffer.append("子流水线不能为空 | ");
+                buffer.append("subPipeline ID cannot be empty | ");
             }
         } else {
             if (StringUtils.isBlank(param.getSubPipelineName())) {
-                buffer.append("子流水线名称不能为空 | ");
+                buffer.append("subPipeline Name cannot be empty | ");
             }
         }
 
         if (StringUtils.isBlank(param.getRunMode())) {
-            buffer.append("运行方式不能为空 | ");
+            buffer.append("run mode cannot be empty | ");
         }
 
         if (StringUtils.isBlank(param.getPipelineBuildId())) {
-            buffer.append("流水线 BuildId 不能为空 | ");
+            buffer.append("buildId cannot be empty | ");
         }
 
         if (StringUtils.isBlank(param.getPipelineId())) {
-            buffer.append("流水线不能为空 | ");
+            buffer.append("pipelineId cannot be empty | ");
         }
 
         if (StringUtils.isBlank(param.getPipelineTaskId())) {
-            buffer.append("流水线 TaskId 不能为空 | ");
+            buffer.append("taskId cannot be empty | ");
         }
 
         String pollingInterval = param.getPollingInterval();
         if (pollingInterval != null) {
             boolean pollingIntervalValue = pollingInterval.matches("10|[1-9]");
             if (!pollingIntervalValue) {
-                buffer.append("轮询间隔，仅支持1~10之间的整数 | ");
+                buffer.append("Polling interval, only integers between 1 and 10 are supported | ");
             }
         }
 

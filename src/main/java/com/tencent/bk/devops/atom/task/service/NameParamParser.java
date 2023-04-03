@@ -56,7 +56,7 @@ public class NameParamParser implements ParamParser {
             subPipelineId = pipelineName;
         }
         if (StringUtils.isBlank(subPipelineId)) {
-            throw new ParamInvalidException(String.format("【%s】流水线名不存在", pipelineName));
+            throw new ParamInvalidException(String.format("【%s】pipeline name does not exist", pipelineName));
         }
         return subPipelineId;
     }
