@@ -92,7 +92,7 @@ public class SubPipelineMain implements TaskAtom<AtomParam> {
         }
 
         String pollingInterval = param.getPollingInterval();
-        if (pollingInterval != null) {
+        if (StringUtils.isNotBlank(pollingInterval)) {
             boolean pollingIntervalValue = pollingInterval.matches("10|[1-9]");
             if (!pollingIntervalValue) {
                 buffer.append("Polling interval, only integers between 1 and 10 are supported | ");
