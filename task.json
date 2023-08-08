@@ -1,5 +1,6 @@
 {
   "atomCode": "SubPipelineExec",
+  "defaultLocaleLanguage": "zh_CN",
   "execution": {
     "packagePath": "ci-SubPipelineExec-jar-with-dependencies.jar",
     "language": "java",
