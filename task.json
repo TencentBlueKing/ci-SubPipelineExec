@@ -30,7 +30,7 @@
       "frontendType": "NORMAL"
     },
     "versionInfo": {
-      "publisher": "admin",
+      "publisher": "BlueKing",
       "releaseType": "NEW",
       "version": "1.0.0",
       "versionContent": "init"
@@ -126,7 +126,7 @@
       "desc": "带入子流水线的运行参数",
       "param": {
         "showEnable": true,
-        "enableTips": "选中时，以编辑当前插件且保存父流水线时的值为准，每次执行均从父流水线传入。 <br>未选中时，始终以子流水线最新设置为准，不从父流水线传入。",
+        "enableTips": "选中时，以当前插件入参为准，每次执行均从当前插件传入。未选中时，以子流水线最新设置为准。",
         "hasAddButton": false,
         "paramType": "url",
         "url": "/process/api/user/subpipeline/manualStartupInfo",
@@ -151,7 +151,7 @@
       "label": "子流水线参数",
       "type": "vuex-textarea",
       "required": false,
-      "desc": " key和value间用=连接，多个参数间以换行分隔",
+      "desc": "key和value间用=连接，多个参数间以换行分隔",
       "placeholder": "a=111\nb=222",
       "rely": {
         "operation": "AND",
@@ -167,7 +167,7 @@
       "label": "子流水线输出变量命名空间",
       "type": "vuex-input",
       "required": false,
-      "desc": " 自动添加在子流水线变量前，避免覆盖父流水线变量,不填默认是sub_pipeline ",
+      "desc": "作为子流水线输出变量的前缀，避免同名时覆盖父流水线变量，不填默认为sub_pipeline",
       "placeholder": "不填默认是sub_pipeline",
       "default": "sub_pipeline",
       "rely": {
@@ -184,7 +184,7 @@
       "label": "子流水线输出变量",
       "type": "vuex-textarea",
       "required": false,
-      "desc": " 填写需要输出的子流水变量名称，多个输出,以英文逗号分隔",
+      "desc": "填写需要输出的子流水变量名称，多个输出,以英文逗号分隔",
       "placeholder": "parameter1,parameter2,parameter3",
       "rely": {
         "operation": "AND",
